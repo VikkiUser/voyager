@@ -57,7 +57,7 @@ class VoyagerSettingsController extends Controller
             ]);
 
             if ($content === null && isset($setting->value)) {
-                $content = $setting->value;
+                if($setting->type!='rich_text_box'){$content = $setting->value;}else{$content ='';}
             }
 
             $setting->value = $content;
